@@ -1,0 +1,209 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Fiestika Perú — sistema de diseño.
+ * Paleta del logo: rosa, durazno, amarillo, menta, aqua, lila. Acento fucsia.
+ */
+
+@theme inline {
+  --font-display: "Fredoka", "Baloo 2", system-ui, sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-rosa: var(--rosa);
+  --color-durazno: var(--durazno);
+  --color-amarillo: var(--amarillo);
+  --color-menta: var(--menta);
+  --color-aqua: var(--aqua);
+  --color-lila: var(--lila);
+  --color-fucsia: var(--fucsia);
+  --color-fucsia-foreground: var(--fucsia-foreground);
+  --color-pastel-foreground: var(--pastel-foreground);
+  --color-tinta: var(--tinta);
+  --color-tinta-foreground: var(--tinta-foreground);
+  --color-whatsapp: var(--whatsapp);
+
+  --color-chart-1: var(--rosa);
+  --color-chart-2: var(--menta);
+  --color-chart-3: var(--aqua);
+  --color-chart-4: var(--amarillo);
+  --color-chart-5: var(--lila);
+  --color-sidebar: var(--card);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--muted);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--ring);
+}
+
+:root {
+  --radius: 1.75rem;
+  --background: #fbfaf6;
+  --foreground: oklch(0.29 0.03 350);
+  --card: oklch(0.995 0.005 30);
+  --card-foreground: oklch(0.29 0.03 350);
+  --popover: oklch(0.995 0.005 30);
+  --popover-foreground: oklch(0.29 0.03 350);
+  --primary: oklch(0.63 0.19 358);
+  --primary-foreground: oklch(0.99 0.005 30);
+  --secondary: oklch(0.8 0.11 358);
+  --secondary-foreground: oklch(0.29 0.03 350);
+  --muted: oklch(0.93 0.025 25);
+  --muted-foreground: oklch(0.47 0.035 350);
+  --accent: oklch(0.88 0.06 160);
+  --accent-foreground: oklch(0.29 0.03 350);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.035 20);
+  --input: oklch(0.88 0.035 20);
+  --ring: oklch(0.63 0.19 358);
+
+  --rosa: oklch(0.8 0.11 358);
+  --durazno: oklch(0.81 0.1 30);
+  --amarillo: oklch(0.89 0.11 80);
+  --menta: oklch(0.88 0.06 160);
+  --aqua: oklch(0.85 0.07 185);
+  --lila: oklch(0.82 0.07 320);
+  --fucsia: oklch(0.63 0.19 358);
+  --fucsia-foreground: oklch(0.99 0.005 30);
+  --pastel-foreground: oklch(0.29 0.03 350);
+  --tinta: oklch(0.29 0.03 350);
+  --tinta-foreground: oklch(0.96 0.017 30);
+  --whatsapp: oklch(0.72 0.17 150);
+
+  --shadow-soft: 0 12px 30px -12px oklch(0.63 0.19 358 / 0.35);
+  --shadow-card: 0 8px 24px -10px oklch(0.29 0.03 350 / 0.18);
+}
+
+.dark {
+  --background: oklch(0.21 0.01 340);
+  --foreground: oklch(0.95 0.015 20);
+  --card: oklch(0.26 0.015 340);
+  --card-foreground: oklch(0.95 0.015 20);
+  --popover: oklch(0.26 0.015 340);
+  --popover-foreground: oklch(0.95 0.015 20);
+  --primary: oklch(0.7 0.2 358);
+  --primary-foreground: oklch(0.18 0.01 340);
+  --secondary: oklch(0.74 0.14 358);
+  --secondary-foreground: oklch(0.2 0.02 350);
+  --muted: oklch(0.31 0.017 340);
+  --muted-foreground: oklch(0.78 0.02 340);
+  --accent: oklch(0.78 0.1 160);
+  --accent-foreground: oklch(0.2 0.02 350);
+  --destructive: oklch(0.68 0.2 25);
+  --border: oklch(0.36 0.02 340);
+  --input: oklch(0.36 0.02 340);
+  --ring: oklch(0.7 0.2 358);
+
+  --rosa: oklch(0.74 0.14 358);
+  --durazno: oklch(0.75 0.13 32);
+  --amarillo: oklch(0.84 0.14 80);
+  --menta: oklch(0.8 0.1 160);
+  --aqua: oklch(0.78 0.1 185);
+  --lila: oklch(0.75 0.1 320);
+  --fucsia: oklch(0.7 0.2 358);
+  --fucsia-foreground: oklch(0.18 0.01 340);
+  --pastel-foreground: oklch(0.2 0.02 350);
+
+  --shadow-soft: 0 12px 30px -12px oklch(0.7 0.2 358 / 0.4);
+  --shadow-card: 0 8px 24px -10px oklch(0 0 0 / 0.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility pill {
+  border-radius: 9999px;
+}
+
+@utility titular {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+@utility flotar {
+  animation: flotar 6s ease-in-out infinite;
+}
+@utility flotar-lento {
+  animation: flotar 9s ease-in-out infinite;
+}
+@utility rebote {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+  &:hover {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 4deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
