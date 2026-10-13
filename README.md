@@ -116,6 +116,10 @@ google-apps-script/   Integración opcional con Sheets
 
 Aunque los datos comerciales se mantienen en archivos, el proyecto utiliza TanStack Start y una configuración de compilación con Nitro. Revisa `vite.config.ts` y la salida de `npm run build` al elegir el entorno de despliegue.
 
+### Publicar en Netlify
+
+La configuración está en `netlify.toml`: Node.js 24, comando `npm ci && npm run build`, publicación desde `dist` y preset Nitro `netlify`. El despliegue conectado a Git también incluye la función de servidor generada. Consulta [NETLIFY.md](NETLIFY.md) para los pasos y pendientes de contenido.
+
 ## Sincronización con Lovable
 
 Este repositorio está conectado a [Lovable](https://lovable.dev). Los commits enviados a la rama conectada se sincronizan con su editor.

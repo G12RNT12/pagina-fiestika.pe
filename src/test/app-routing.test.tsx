@@ -5,6 +5,12 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 
+// jsdom does not load stylesheets; React 19 otherwise waits for their load event.
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@tanstack/react-router")>();
+  return { ...actual, HeadContent: () => null, Scripts: () => null };
+});
+
 function renderAt(path: string) {
   const queryClient = new QueryClient();
   const router = createRouter({
@@ -12,7 +18,11 @@ function renderAt(path: string) {
     context: { queryClient },
     history: createMemoryHistory({ initialEntries: [path] }),
   });
-  return render(<RouterProvider router={router} />);
+  // TanStack Start renders a full HTML document, rather than a div subtree.
+  return render(<RouterProvider router={router} />, {
+    container: document as unknown as HTMLElement,
+    baseElement: document.documentElement,
+  });
 }
 
 afterEach(() => {
@@ -20,20 +30,19 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-// Assert only that the router mounts and paints, never page content:
-// routes are rewritten as the app is built and this must keep passing.
+// Verify the store route and the fallback route render their expected content.
 describe("App routing", () => {
   it("renders the index route", async () => {
-    const { container } = renderAt("/");
+    renderAt("/");
 
-    await waitFor(() => expect(container.firstChild).not.toBeNull());
+    await waitFor(() => expect(document.querySelector("#catalogo")).not.toBeNull());
   });
 
   it("renders the not-found route", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
 
-    const { container } = renderAt("/this-route-does-not-exist");
+    renderAt("/this-route-does-not-exist");
 
-    await waitFor(() => expect(container.firstChild).not.toBeNull());
+    await waitFor(() => expect(document.body.textContent).toContain("404"));
   });
 });
