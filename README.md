@@ -75,9 +75,31 @@ Las fotos se guardan en `public/images/<categoria>/`. El identificador de catego
 public/images/<categoria>/<id-del-producto>.webp
 ```
 
-Por ejemplo, `banderines-caritas` utiliza `public/images/decoracion/banderines-caritas.webp`. En el código, la ruta es `/images/decoracion/banderines-caritas.webp`, sin el prefijo `public`.
+Por ejemplo, `banderines-caritas-chicas` utiliza `public/images/decoracion/banderines-caritas-chicas.webp`. En el código, la ruta es `/images/decoracion/banderines-caritas-chicas.webp`, sin el prefijo `public`.
 
 Para usar otras fotos o varias imágenes, define el arreglo `imagenes` del producto. Los recursos generales del sitio se guardan en `public/images/sitio/`. El componente `Imagen.tsx` muestra un marcador pastel si la imagen no se puede cargar.
+
+### Banderines de caritas
+
+Los tamaños se muestran como tres productos independientes en la categoría Decoración. Cada uno tiene su propia ficha, precio e imagen y se agrega al carrito por separado.
+
+| Producto | Cantidad | Tamaño de carita | Largo del banderín | Precio | ID |
+| --- | --- | --- | --- | --- | --- |
+| Banderines de caritas chicas | 6 unidades | 9 cm | 0.5 m | S/ 20 | `banderines-caritas-chicas` |
+| Banderines de caritas medianas | 8 unidades | 14 cm | 1.5 m | S/ 35 | `banderines-caritas-medianas` |
+| Banderines de caritas grandes | 9 unidades | 25.6 cm | 2 m aprox. | S/ 48 | `banderines-caritas-grandes` |
+
+Los tres son personalizables, se fabrican a pedido y permiten elegir entre caras e imágenes. La carita adicional cuesta S/ 2.50, según la nota del producto; coordina este adicional con el equipo por WhatsApp.
+
+Para añadir sus fotos, guarda estos archivos en `public/images/decoracion/`:
+
+- `banderines-caritas-chicas.webp`
+- `banderines-caritas-medianas.webp`
+- `banderines-caritas-grandes.webp`
+
+### Guía de edición
+
+Consulta [COMO-EDITAR.md](COMO-EDITAR.md) para mantener los productos, imágenes, datos de contacto y contenido de la tienda.
 
 ### Pagos y entregas
 
